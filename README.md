@@ -105,12 +105,6 @@ npm start
 ## 📚 Documentação
 
 - **`SETUP.md`** - Guia completo de instalação
-- **`COMANDOS.md`** - Guia de todos os comandos
-- **`PARTE1_COMPLETA.md`** - Documentação da estrutura base
-- **`PARTE2_COMPLETA.md`** - Documentação do CRUD
-- **`PARTE3_COMPLETA.md`** - Documentação do sistema de pagamento
-- **`TESTE_PARTE2.md`** - Guia de testes do CRUD
-- **`TESTE_PARTE3.md`** - Guia de testes do pagamento
 
 ---
 

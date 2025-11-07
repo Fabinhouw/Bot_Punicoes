@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Bot de Punições RP Militar</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1>🎖️ DASHBOARD - BOT DE PUNIÇÕES</h1>
+                <p class="subtitle">Sistema de Gerenciamento RP Militar</p>
+            </div>
+            <div class="header-time">
+                <span id="currentTime"></span>
+            </div>
+        </header>
+
+        <!-- Estatísticas -->
+        <section class="stats-section">
+            <div class="stat-card">
+                <div class="stat-icon">👥</div>
+                <div class="stat-content">
+                    <h3 id="totalUsuarios">0</h3>
+                    <p>Soldados em Débito</p>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon">💪</div>
+                <div class="stat-content">
+                    <h3 id="totalPunicoes">0</h3>
+                    <p>Polichinelos Pendentes</p>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon">🔄</div>
+                <div class="stat-content">
+                    <h3 id="usuariosPagando">0</h3>
+                    <p>Pagando Agora</p>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon">⏸️</div>
+                <div class="stat-content">
+                    <h3 id="usuariosPendentes">0</h3>
+                    <p>Aguardando Pagamento</p>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon">📝</div>
+                <div class="stat-content">
+                    <h3 id="logsHoje">0</h3>
+                    <p>Logs Hoje</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tabs -->
+        <div class="tabs">
+            <button class="tab-button active" onclick="showTab('usuarios')">
+                👥 Usuários com Punições
+            </button>
+            <button class="tab-button" onclick="showTab('pagando')">
+                🔄 Pagamentos em Andamento
+            </button>
+            <button class="tab-button" onclick="showTab('logs')">
+                📝 Últimos Logs
+            </button>
+        </div>
+
+        <!-- Tab: Usuários -->
+        <div id="usuarios-tab" class="tab-content active">
+            <div class="section-header">
+                <h2>👥 Usuários com Punições</h2>
+                <button class="refresh-btn" onclick="loadUsuarios()">🔄 Atualizar</button>
+            </div>
+            <div class="table-container">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Posição</th>
+                            <th>ID do Usuário</th>
+                            <th>Punições</th>
+                            <th>Status</th>
+                            <th>Progresso</th>
+                            <th>Erros</th>
+                            <th>Última Atualização</th>
+                        </tr>
+                    </thead>
+                    <tbody id="usuarios-tbody">
+                        <tr>
+                            <td colspan="7" class="loading">Carregando...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Tab: Pagando -->
+        <div id="pagando-tab" class="tab-content">
+            <div class="section-header">
+                <h2>🔄 Pagamentos em Andamento</h2>
+                <button class="refresh-btn" onclick="loadPagando()">🔄 Atualizar</button>
+            </div>
+            <div id="pagando-container" class="cards-container">
+                <p class="loading">Carregando...</p>
+            </div>
+        </div>
+
+        <!-- Tab: Logs -->
+        <div id="logs-tab" class="tab-content">
+            <div class="section-header">
+                <h2>📝 Últimos Logs</h2>
+                <div class="filters">
+                    <select id="logNivel" onchange="loadLogs()">
+                        <option value="">Todos os Níveis</option>
+                        <option value="info">Info</option>
+                        <option value="success">Success</option>
+                        <option value="warning">Warning</option>
+                        <option value="error">Error</option>
+                    </select>
+                    <button class="refresh-btn" onclick="loadLogs()">🔄 Atualizar</button>
+                </div>
+            </div>
+            <div id="logs-container" class="logs-container">
+                <p class="loading">Carregando...</p>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Bot de Punições RP Militar • Dashboard v1.0 • Atualização automática a cada 10 segundos</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

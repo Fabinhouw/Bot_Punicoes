@@ -1,0 +1,26 @@
+{
+  "name": "bot-punicao",
+  "version": "1.0.0",
+  "description": "Bot de administração de punições para servidor de RP militar no Discord",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node index.js",
+    "deploy": "node deploy-commands.js",
+    "dashboard": "node dashboard/server.js",
+    "start:all": "concurrently \"npm start\" \"npm run dashboard\""
+  },
+  "keywords": ["discord", "bot", "punições", "rp", "militar"],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^14.14.1",
+    "pg": "^8.11.3",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "cors": "^2.8.5"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
